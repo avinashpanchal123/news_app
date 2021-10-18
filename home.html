@@ -1,20 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-
-        *{
+        * {
             box-sizing: border-box;
             padding: 0;
             margin: 0;
 
         }
 
-        .main_container{
+        .main_container {
             display: grid;
             border: 2px solid black;
             width: 80%;
@@ -22,30 +22,63 @@
             grid-template-rows: 1000px;
         }
 
-        .left_nav{
+        .left_nav {
             border: 2px solid gray;
+            position: relative;
         }
 
-        #headings_container{
+        #headings_container {
             border: 2px solid red;
             display: grid;
             grid-template-columns: repeat(3, 1fr);
+            gap: 1%;
         }
 
-     
+        #headings_container>div {
+            padding: 10% 5%;
+        }
+
+        #headings_container div:nth-child(3n) img {
+            width: 100%;
+            /* padding: 10%; */
+        }
+
+        #search_btn{
+            padding: 2vh 10%;
+            letter-spacing: 1px;
+            font-size: 24px;
+        }
+
+        #search_container{
+            width: 100%;
+            height: 30vh;
+
+        }
+
+        #search_input{
+            width: 100%;
+            padding: 1vh 10%;
+        }
+
+
     </style>
 </head>
+
 <body>
-      <div class="main_container">
+    <div class="main_container">
         <div class="left_nav">
+            <button id="search_btn">Search</button>
+            <input id="search_input" type="text" placeholder="Search for news">
+           
+        </div>
+
+
+        <div id="headings_container">
 
         </div>
-  
-        <div id="headings_container">
-  
-        </div>
-      </div>
+    </div>
 </body>
+
 </html>
 
 <script src="home.js"></script>

@@ -14,7 +14,7 @@ async function topStories(){
 
         let data = await res.json();
 
-       console.log(data.articles);
+       console.log(data);
 
         uppendHeadings((data.articles))
 
@@ -22,6 +22,7 @@ async function topStories(){
     }
 
     catch(err){
+    
           console.log(err);
     }
 }
@@ -39,7 +40,12 @@ function uppendHeadings(headlines_list){
 
         let heading_div = document.createElement("div");
 
-        let top_heading = document.createElement("h2");
+        let top_heading = document.createElement("h3");
+
+        top_heading.onclick = ()=>{
+            go_to_newsPage(heading)
+        }
+
 
         top_heading.textContent = heading.title;
 
@@ -54,17 +60,44 @@ function uppendHeadings(headlines_list){
 
         let img = document.createElement('img');
 
-        img.src = heading.description
+        img.src = heading.urlToImage;
 
-        
+        discription_div.append(para);
+
+        img_div.append(img);
+    
 
         heading_div.append(top_heading)
 
         
-        headings_container.append(heading_div)
+        headings_container.append(heading_div,discription_div,img_div)
 
        
     });
 
 }
+
+
+   function go_to_newsPage(heading){
+
+    // window.location.href = "news.html"
+
+
+    if( localStorage.getItem("recentClick") == null){
+        localStorage.setItem("recentClick", JSON.stringify([]))
+    }
+
+    
+
+   
+       
+
+    let recentClick = ( JSON.parse(localStorage.getItem("recentClick")));
+
+    recentClick.push(heading);
+
+    localStorage.setItem("recentClick",JSON.stringify(recentClick))
+
+    console.log(recentClick);
+   }
 
