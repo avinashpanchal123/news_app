@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+        *{
+            box-sizing: border-box;
+            padding: 0;
+            margin: 0;
+
+        }
+
+        .main_container{
+            display: grid;
+            border: 2px solid black;
+            width: 80%;
+            grid-template-columns: 20% 80%;
+            grid-template-rows: 1000px;
+        }
+
+        .left_nav{
+            border: 2px solid gray;
+        }
+
+        #headings_container{
+            border: 2px solid red;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+        }
+
+     
+    </style>
+</head>
+<body>
+      <div class="main_container">
+        <div class="left_nav">
+
+        </div>
+  
+        <div id="headings_container">
+  
+        </div>
+      </div>
+</body>
+</html>
+
+<script src="home.js"></script>
