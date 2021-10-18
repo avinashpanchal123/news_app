@@ -14,7 +14,7 @@ async function topStories(){
 
         let data = await res.json();
 
-       console.log(data);
+    //    console.log(data);
 
         uppendHeadings((data.articles))
 
@@ -89,7 +89,7 @@ function uppendHeadings(headlines_list){
 
     
 
-   
+    window.location.href = "news.html"
        
 
     let recentClick = ( JSON.parse(localStorage.getItem("recentClick")));
@@ -100,4 +100,51 @@ function uppendHeadings(headlines_list){
 
     console.log(recentClick);
    }
+
+
+
+   //GET 
+
+
+
+   
+async function newsSearch(){
+
+    let query = document.getElementById("search_input").value
+
+    try{
+        let res = await fetch(`http://newsapi.org/v2/everything?q=${query}&apiKey=426b09e370654a0094f46181aecc60de`)
+
+        let news = await res.json();
+
+        console.log(news);
+
+        go_to_searchPage(news.articles)
+
+    
+    }
+
+    catch(err){
+    
+          console.log(err);
+    }
+}
+
+
+function go_to_searchPage(query){
+    if( localStorage.getItem("searched") == null){
+        localStorage.setItem("searched", JSON.stringify([]))
+    }
+
+    let searched = JSON.parse(localStorage.getItem("searched"))
+
+    searched.push(query)
+
+    localStorage.setItem("searched",JSON.stringify(searched));
+
+    window.location.href = "search.html"
+
+    console.log( JSON.parse(localStorage.getItem("searched")));
+}
+
 

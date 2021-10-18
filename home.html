@@ -16,19 +16,19 @@
 
         .main_container {
             display: grid;
-            border: 2px solid black;
+            /* border: 2px solid black; */
             width: 80%;
             grid-template-columns: 20% 80%;
             grid-template-rows: 1000px;
         }
 
         .left_nav {
-            border: 2px solid gray;
+            /* border: 2px solid gray; */
             position: relative;
         }
 
         #headings_container {
-            border: 2px solid red;
+            /* border: 2px solid red; */
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 1%;
@@ -67,7 +67,7 @@
 <body>
     <div class="main_container">
         <div class="left_nav">
-            <button id="search_btn">Search</button>
+            <button onclick="newsSearch()" id="search_btn">Search</button>
             <input id="search_input" type="text" placeholder="Search for news">
            
         </div>
